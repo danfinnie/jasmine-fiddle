@@ -1,13 +1,20 @@
-angular.module('app', []).controller('ctrl', function($scope) {
-  $scope.tests = 'describe("kitten", function() {' +
-    '  it("returns kitten", function() {' +
-    '    expect(kitten()).toEqual("kitten");' +
-    '  });' +
-    '});';
+angular.module('app', ['ui.ace']).controller('ctrl', function($scope) {
+  $scope.tests = 'describe("kitten", function() {\n' +
+    '  it("returns kitten", function() {\n' +
+    '    expect(kitten()).toEqual("kitten");\n' +
+    '  });\n' +
+    '});\n';
 
-  $scope.code = 'var kitten = function() {' +
-    '  return "kitten";' +
-    '};';
+  $scope.code = 'var kitten = function() {\n' +
+    '  return "kitten";\n' +
+    '};\n';
+
+  $scope.aceConfig = {
+    mode: "javascript",
+    advanced: {
+        fontSize: '16px'
+    }
+  };
 
   $scope.$watchGroup(['code', 'tests'], function() {
     window.jasmine = jasmineRequire.core(jasmineRequire);
