@@ -9,7 +9,7 @@ angular.module('app', []).controller('ctrl', function($scope) {
     '  return "kitten";' +
     '};';
 
-  $scope.go = function() {
+  $scope.$watchGroup(['code', 'tests'], function() {
     window.jasmine = jasmineRequire.core(jasmineRequire);
 
     /**
@@ -115,5 +115,5 @@ angular.module('app', []).controller('ctrl', function($scope) {
     eval($scope.tests);
       htmlReporter.initialize();
       env.execute();
-  };
+  });
 });
