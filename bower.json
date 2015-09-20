@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-ui-ace": "bower"
+    "angular-ui-ace": "bower",
+    "jasmine-core": "~2.3.4"
   }
 }
