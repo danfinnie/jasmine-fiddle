@@ -27,4 +27,9 @@ gulp.task('aceWorker', function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['concatJs', 'aceWorker']);
+gulp.task('copyPublic', function () {
+  return gulp.src('public/*')
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('default', ['concatJs', 'aceWorker', 'copyPublic']);
