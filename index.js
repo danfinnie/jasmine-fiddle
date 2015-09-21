@@ -2,11 +2,7 @@ var path = require('path');
 var express = require('express');
 var app = express();
 
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// app.get('/', function(req, res) {
-  // res.send('hello world');
-// });
+app.use("/js-cdd", express.static(path.join(__dirname, 'dist')));
 
 var server = app.listen(3000, function() {
   var host = server.address().address;
