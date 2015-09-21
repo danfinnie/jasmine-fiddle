@@ -11,7 +11,7 @@ angular.module('app', ['ui.ace']).controller('ctrl', function($scope) {
 
   $scope.aceConfig = {
     mode: "javascript",
-    workerPath: "/",
+    workerPath: "./",
     advanced: {
         fontSize: '16px'
     }
