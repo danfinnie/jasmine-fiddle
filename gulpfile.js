@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
+var ghPages = require('gulp-gh-pages');
 
 gulp.task('concatJs', function () {
   return gulp.src([
@@ -30,6 +31,11 @@ gulp.task('aceWorker', function () {
 gulp.task('copyPublic', function () {
   return gulp.src('public/*')
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('deploy', ['default'], function() {
+  return gulp.src('dist/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('default', ['concatJs', 'aceWorker', 'copyPublic']);
