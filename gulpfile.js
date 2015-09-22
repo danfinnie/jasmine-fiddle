@@ -17,7 +17,10 @@ gulp.task('concatJs', function () {
       "bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"
   ]);
 
-  var firstParty = gulp.src('scripts/*.js').pipe(ngAnnotate());
+  var firstParty = gulp.src([
+    'scripts/app.js',
+    'scripts/*.js'
+  ]).pipe(ngAnnotate());
 
   return merge2(thirdParty, firstParty)
     .pipe(concat('script.js'))
