@@ -12,6 +12,6 @@ Inspired by jsfiddle.
 4. Run `gulp deploy` to recreate the gh-pages branch.
 
 ## Todo
-[ ] Register domain
-[ ] Support sharing your creation
-[ ] Easily add libraries
+ - [ ] Register domain
+ - [ ] Support sharing your creation
+ - [ ] Easily add libraries
