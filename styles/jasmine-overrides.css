@@ -1,0 +1,8 @@
+body {
+  overflow-y: hidden;
+}
+
+.jasmine_html-reporter {
+  height: 100%;
+  margin: 0;
+}

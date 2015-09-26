@@ -41,9 +41,19 @@ gulp.task('copyPublic', function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('styles', function() {
+  return gulp.src([
+      'styles/reset.css',
+      'styles/jasmine-overrides.css',
+      'styles/main.css',
+    ])
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest('dist'));
+})
+
 gulp.task('deploy', ['default'], function() {
   return gulp.src('dist/**/*')
     .pipe(ghPages());
 });
 
-gulp.task('default', ['concatJs', 'aceWorker', 'copyPublic']);
+gulp.task('default', ['concatJs', 'aceWorker', 'copyPublic', 'styles']);
