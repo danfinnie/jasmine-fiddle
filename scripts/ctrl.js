@@ -121,7 +121,7 @@ app.controller('ctrl', function($scope) {
 
     eval($scope.code);
     eval($scope.tests);
-      htmlReporter.initialize();
-      env.execute();
+    htmlReporter.initialize();
+    env.execute();
   });
 });
