@@ -5,21 +5,27 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Jasmine Fiddle</title>
       <link rel="stylesheet" href="style.css">
+      <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
       <script src="parent-script.js"></script>
     </head>
     <body class="full-height">
-      <div ng-controller="ctrl" class="container full-height">
-        <div class="col">
-          <div class="col-header">Your code</div>
-          <div class="col-body" ui-ace="aceConfig" ng-model="code"></div>
+      <div class="container full-height">
+        <div class="header">
+          <h1>JasmineFiddle</h1>
         </div>
-        <div class="col">
-          <div class="col-header">Your tests</div>
-          <div class="col-body" ui-ace="aceConfig" ng-model="tests"></div>
-        </div>
-        <div class="col">
-          <div class="col-header">Results</div>
-          <jasmine-results js="{{code}} {{tests}}" class="col-body"></jasmine-results>
+        <div ng-controller="ctrl" class="workspace">
+          <div class="col">
+            <h2 class="col-header">Code</h2>
+            <div class="col-body" ui-ace="aceConfig" ng-model="code"></div>
+          </div>
+          <div class="col">
+            <h2 class="col-header">Tests</h2>
+            <div class="col-body" ui-ace="aceConfig" ng-model="tests"></div>
+          </div>
+          <div class="col">
+            <h2 class="col-header">Results</h2>
+            <jasmine-results js="{{code}} {{tests}}" class="col-body"></jasmine-results>
+          </div>
         </div>
       </div>
     </body>
