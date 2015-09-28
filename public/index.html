@@ -4,9 +4,8 @@
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Jasmine Fiddle</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.css">
       <link rel="stylesheet" href="style.css">
-      <script src="script.js"></script>
+      <script src="parent-script.js"></script>
     </head>
     <body class="full-height">
       <div ng-controller="ctrl" class="container full-height">
@@ -20,8 +19,9 @@
         </div>
         <div class="col">
           <div class="col-header">Results</div>
-          <div class="col-body" id="results"></div>
+          <jasmine-results js="{{code}} {{tests}}" class="col-body"></jasmine-results>
         </div>
       </div>
     </body>
 </html>
+

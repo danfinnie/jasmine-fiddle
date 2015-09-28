@@ -6,24 +6,33 @@ var ghPages = require('gulp-gh-pages');
 var ngAnnotate = require('gulp-ng-annotate');
 var merge2 = require('merge2');
 
-gulp.task('concatJs', function () {
+gulp.task('concatParentJs', function () {
   var thirdParty = gulp.src([
       'bower_components/ace-builds/src-noconflict/ace.js',
       'bower_components/ace-builds/src-noconflict/ext-language_tools.js',
       'bower_components/ace-builds/src-noconflict/mode-javascript.js',
       "bower_components/angular/angular.js",
       "bower_components/angular-ui-ace/ui-ace.js",
-      "bower_components/jasmine-core/lib/jasmine-core/jasmine.js",
-      "bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"
   ]);
 
   var firstParty = gulp.src([
-    'scripts/app.js',
-    'scripts/*.js'
+    'parent_scripts/app.js',
+    'parent_scripts/*.js'
   ]).pipe(ngAnnotate());
 
   return merge2(thirdParty, firstParty)
-    .pipe(concat('script.js'))
+    .pipe(concat('parent-script.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('concatIframeJs', function () {
+  return gulp.src([
+      "bower_components/jasmine-core/lib/jasmine-core/jasmine.js",
+      "bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js",
+      "iframe_scripts/*",
+    ])
+    .pipe(concat('iframe-script.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist/'));
 });
@@ -44,7 +53,6 @@ gulp.task('copyPublic', function () {
 gulp.task('styles', function() {
   return gulp.src([
       'styles/reset.css',
-      'styles/jasmine-overrides.css',
       'styles/main.css',
     ])
     .pipe(concat('style.css'))
@@ -56,4 +64,4 @@ gulp.task('deploy', ['default'], function() {
     .pipe(ghPages());
 });
 
-gulp.task('default', ['concatJs', 'aceWorker', 'copyPublic', 'styles']);
+gulp.task('default', ['concatParentJs', 'concatIframeJs', 'aceWorker', 'copyPublic', 'styles']);
