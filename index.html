@@ -1,28 +1,27 @@
 <!doctype html>
-<html ng-app="app" ng-strict-di>
+<html ng-app="app" ng-strict-di class="full-height">
     <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Jasmine Fiddle</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.3.4/jasmine.min.css">
       <link rel="stylesheet" href="style.css">
-      <script src="script.js"></script>
+      <script src="parent-script.js"></script>
     </head>
-    <body ng-controller="ctrl">
-      <div class="container-fluid">
-        <div class="col-md-4">
-          Your code
-          <div ui-ace="aceConfig" ng-model="code"></div>
+    <body class="full-height">
+      <div ng-controller="ctrl" class="container full-height">
+        <div class="col">
+          <div class="col-header">Your code</div>
+          <div class="col-body" ui-ace="aceConfig" ng-model="code"></div>
         </div>
-        <div class="col-md-4">
-          Your tests
-          <div ui-ace="aceConfig" ng-model="tests"></div>
+        <div class="col">
+          <div class="col-header">Your tests</div>
+          <div class="col-body" ui-ace="aceConfig" ng-model="tests"></div>
         </div>
-        <div class="col-md-4">
-          Results
-          <div id="results"></div>
+        <div class="col">
+          <div class="col-header">Results</div>
+          <jasmine-results js="{{code}} {{tests}}" class="col-body"></jasmine-results>
         </div>
       </div>
     </body>
 </html>
+
