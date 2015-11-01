@@ -4,29 +4,17 @@
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <title>Jasmine Fiddle</title>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="css/style.css">
       <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
       <script src="parent-script.js"></script>
     </head>
     <body class="full-height">
-      <div class="container full-height">
+      <div class="container2 full-height">
         <div class="header">
           <h1>JasmineFiddle</h1>
+          <copy-url-to-clipboard class="copy-url-to-clipboard" />
         </div>
-        <div ng-controller="ctrl" class="workspace">
-          <div class="col">
-            <h2 class="col-header">Code</h2>
-            <div class="col-body" ui-ace="aceConfig" ng-model="code"></div>
-          </div>
-          <div class="col">
-            <h2 class="col-header">Tests</h2>
-            <div class="col-body" ui-ace="aceConfig" ng-model="tests"></div>
-          </div>
-          <div class="col">
-            <h2 class="col-header">Results</h2>
-            <jasmine-results js="{{code}} {{tests}}" class="col-body"></jasmine-results>
-          </div>
-        </div>
+        <div ng-view class="full-height"></div>
       </div>
     </body>
 </html>

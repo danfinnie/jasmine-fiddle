@@ -1,0 +1,14 @@
+<div ng-controller="ctrl" class="workspace full-height">
+  <div class="col">
+    <h2 class="col-header">Code</h2>
+    <div class="col-body" ui-ace="aceConfig" ng-model="code"></div>
+  </div>
+  <div class="col">
+    <h2 class="col-header">Tests</h2>
+    <div class="col-body" ui-ace="aceConfig" ng-model="tests"></div>
+  </div>
+  <div class="col">
+    <h2 class="col-header">Results</h2>
+    <jasmine-results js="{{code}} {{tests}}" class="col-body"></jasmine-results>
+  </div>
+</div>

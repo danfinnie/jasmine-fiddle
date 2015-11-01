@@ -1,0 +1,8 @@
+<div class="input-group input-group-sm">
+  <input disabled="disabled" type="text" class="form-control" ng-model="url" />
+  <span class="input-group-btn" clipboard text="url" on-copied="copied()" uib-tooltip="{{tooltip}}" tooltip-placement="bottom" tooltip-trigger="mouseenter" ng-mouseenter="mouseEnter()">
+    <button class="btn btn-default" type="button">
+      <span class="glyphicon glyphicon-copy"></span>
+    </button>
+  </span>
+</div>
